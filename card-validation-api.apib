@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: http://localhost:3000
+
+# Card Validation Service API
+Toto API poskytuje služby pro kontrolu platnosti a stavu karty.
+
+## Group Status
+
+### Kontrola stavu serveru [GET /status]
+Tento endpoint kontroluje, zda server běží, a vrátí jednoduchou odpověď "OK".
+
++ Response 200 (text/plain)
+    + Body
+
+            {
+                OK
+            }
+
+## Group Cards
+
+### Získání detailů karty [GET /card/{cardNumber}/details]
+Tento endpoint vrátí platnost a stav karty.
+
++ Parameters
+    + cardNumber: `9203111020153687` (string) - Číslo karty, pro kterou chcete získat detail
+
++ Request (application/json)
+
+    + Headers
+
+            x-api-key: your-secret-api-key
+
++ Response 200 (application/json)
+    + Attributes (object)
+        + validity: `28.2.2020` (string) - Datum platnosti karty
+        + state: `Aktivní v držení klienta` (string) - The current state of the card
+
++ Response 401 (application/json)
+    + Attributes (object)
+        + error: `Unauthorized` (string) - Vráceno v případě chybějícího nebo neplatného API klíče
