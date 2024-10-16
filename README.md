@@ -49,3 +49,13 @@ Tento projekt používá **Jest** pro spouštění jednotkových a integračníc
    - Testy pokrývají klíčové části aplikace:
      - `GET /status`: Ověří, že server běží a vrací očekávaný stav.
      - `GET /card/:cardNumber/details`: Testuje autorizovaný i neautorizovaný přístup k endpointu pro detaily karty a kontroluje formát odpovědi a statusové kódy.
+
+
+## [CR]
+- bylo by dobrý napsat verzi node.js, která je potřeba pro spuštění aplikace, případně napsat Dockerfile, ze kterého by to bylo jasné
+- složka coverage by měla být v .gitignore
+  - pro kód ani repozitář neni nutná, pokud chceme zobrazit výsledky testů, tak se to dělá většinou přes CI/CD pipeline
+- škoda, že nebyl použit Typescript
+- api dokumentace je v pořádku, momentálně je používanější formát openapi (swagger), ale api blueprint je taky v pořádku
+- napsané testy jsou integrační, ne jednotkové. Pro splnění zadání to nevadí, jen si dát pozor na terminologii. Unit testy by byly lepší
+- pokud se mají nastavovat .env proměnné, tak je vhodné vytvořit .env.example nebo .env.template s ukázkou, co tam má být
